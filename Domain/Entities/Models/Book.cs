@@ -15,8 +15,8 @@ namespace Entities
         public bool SoftDeleted { get; set; }
 
         #region NavigationProperties
-        ICollection<BookAuthor> AuthorsLink { get; set; }
-        ICollection<Rewiew> Rewiews { get; set; }
+        public ICollection<BookAuthor> AuthorsLink { get; set; }
+        public ICollection<Rewiew> Rewiews { get; set; }
         public PromotionalPrice RecomendedPrice { get; set; }
         #endregion
     }

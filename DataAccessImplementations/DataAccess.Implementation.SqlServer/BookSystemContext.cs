@@ -1,10 +1,11 @@
-﻿using Entities;
+﻿using DataAccess.Implementation.SqlServer.Seeds;
+using DataAccess.Interfaces;
+using Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
 
-namespace Contexts
+namespace DataAccess.Implementation.SqlServer
 {
-    public class BookSystemContext : DbContext
+    internal class BookSystemContext:DbContext,IBookSystemContext
     {
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
@@ -15,9 +16,12 @@ namespace Contexts
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) {
-            modelBuilder.Entity<BookAuthor>().HasKey(x => new { x.AuthorId, x.BookId });
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BookAuthor>()
+                .HasKey(ba => new { ba.AuthorId, ba.BookId });
             modelBuilder.Entity<PromotionalPrice>().HasIndex(x => x.BookId).IsUnique();
+            modelBuilder.SeedDatabase();
         }
     }
 }

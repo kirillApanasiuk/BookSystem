@@ -1,15 +1,14 @@
-﻿using System;
-using System.Threading.Tasks;
-using Services;
+﻿using System.Threading.Tasks;
+using UseCases.Interfaces;
 
-namespace ServicesWorker
+namespace UseCases.Interfaces
 {
-    public interface IServicesWorker
+    public interface IUnitOfWork
     {
         IAuthorRepository Author { get; }
         IBookRepository Book { get; }
         IPromotionalPriceRepository PricePromo { get; }
         IRewiewRepository Rewiew { get; }
-        Task SaveAsync();
+        public int Save();
     }
 }

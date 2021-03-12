@@ -17,7 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Contexts\Contexts.csproj" />
+    <ProjectReference Include="..\DataAccessImplementations\DataAccess.Implementation.SqlServer\DataAccess.Implementation.SqlServer.csproj" />
+    <ProjectReference Include="..\Services.Implementation\UseCases.Implementation.csproj" />
+    <ProjectReference Include="..\UseCases\UseCases.Implementation\UseCases.Implementation.csproj" />
   </ItemGroup>
 
 

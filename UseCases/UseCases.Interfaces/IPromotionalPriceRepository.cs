@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Services
+namespace UseCases.Interfaces
 {
-    public interface IRewiewRepository
+    public interface IPromotionalPriceRepository
     {
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Entities
+﻿namespace Entities
 {
     public class Rewiew
     {
@@ -13,6 +9,7 @@ namespace Entities
 
         #region Nam properties
         public int BookId { get; set; }
+        public Book Books { get; set; }
         #endregion
     }
 }

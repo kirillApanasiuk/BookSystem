@@ -2,14 +2,14 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Services
+namespace UseCases.Interfaces
 {
-    public interface IRepositoryBase<T>
+    public interface IRepositoryBase<T> where T : class
     {
         IQueryable<T> GetAll(bool trackChanges);
         IQueryable<T> GetByCondition(Expression<Func<T, bool>> conditionExpr, bool trackChanges);
         void Create(T entity);
         void Update(T entity);
-        void Delete(T entiry);
+        void Delete(T entity);
     }
 }

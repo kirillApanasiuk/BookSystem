@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookSystem.Extensions;
+using DataAccess.Implementation.SqlServer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using UseCases.Implementation;
 
 namespace BookSystem
 {
@@ -28,7 +30,8 @@ namespace BookSystem
         {
             services.ConfigureCors();
             services.AddControllers();
-            services.ConfigureSqlContext(Configuration);
+            services.RegisterDataAccess(Configuration);
+            services.RegisterUseCases();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
